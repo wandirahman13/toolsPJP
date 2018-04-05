@@ -4,10 +4,10 @@
         <TenantCode>15152343</TenantCode>
         <LocationCode>15152343</LocationCode>
         <RouteCode>0727</RouteCode>
-        <SalesmanCode>47</SalesmanCode>
+        <SalesmanCode>48</SalesmanCode>
         <CustomerCode>3275~061~003~00009251</CustomerCode>
         <DocumentType>1</DocumentType>
-        <DocumentPrefix>0828ORD</DocumentPrefix>
+        <DocumentPrefix>0727ORD</DocumentPrefix>
         <DocumentNumber>80000162</DocumentNumber>
         <DocumentDate>2018-01-26T15:01:43</DocumentDate>
         <DeliveryDate>2018-01-27T15:01:43</DeliveryDate>
@@ -33,7 +33,7 @@
                 <RVTKey>80000162</RVTKey>
                 <TenantCode>15152343</TenantCode>
                 <LocationCode>15152343</LocationCode>
-                <DocumentPrefix>0017ORD</DocumentPrefix>
+                <DocumentPrefix>0727ORD</DocumentPrefix>
                 <DocumentNumber>80000162</DocumentNumber>
                 <SequenceNumber>1</SequenceNumber>
                 <TransactionType>1</TransactionType>
@@ -51,7 +51,7 @@
                 <RVTKey>80000162</RVTKey>
                 <TenantCode>15152343</TenantCode>
                 <LocationCode>15152343</LocationCode>
-                <DocumentPrefix>0017ORD</DocumentPrefix>
+                <DocumentPrefix>0727ORD</DocumentPrefix>
                 <DocumentNumber>80000162</DocumentNumber>
                 <SequenceNumber>2</SequenceNumber>
                 <TransactionType>1</TransactionType>
@@ -69,7 +69,7 @@
                 <RVTKey>80000162</RVTKey>
                 <TenantCode>15152343</TenantCode>
                 <LocationCode>15152343</LocationCode>
-                <DocumentPrefix>0017ORD</DocumentPrefix>
+                <DocumentPrefix>0727ORD</DocumentPrefix>
                 <DocumentNumber>80000162</DocumentNumber>
                 <SequenceNumber>3</SequenceNumber>
                 <TransactionType>1</TransactionType>
@@ -87,7 +87,7 @@
                 <RVTKey>80000162</RVTKey>
                 <TenantCode>15152343</TenantCode>
                 <LocationCode>15152343</LocationCode>
-                <DocumentPrefix>0017ORD</DocumentPrefix>
+                <DocumentPrefix>0727ORD</DocumentPrefix>
                 <DocumentNumber>80000162</DocumentNumber>
                 <SequenceNumber>4</SequenceNumber>
                 <TransactionType>1</TransactionType>
@@ -105,7 +105,7 @@
                 <RVTKey>80000162</RVTKey>
                 <TenantCode>15152343</TenantCode>
                 <LocationCode>15152343</LocationCode>
-                <DocumentPrefix>0017ORD</DocumentPrefix>
+                <DocumentPrefix>0727ORD</DocumentPrefix>
                 <DocumentNumber>80000162</DocumentNumber>
                 <SequenceNumber>5</SequenceNumber>
                 <TransactionType>1</TransactionType>
@@ -123,7 +123,7 @@
                 <RVTKey>80000162</RVTKey>
                 <TenantCode>15152343</TenantCode>
                 <LocationCode>15152343</LocationCode>
-                <DocumentPrefix>0017ORD</DocumentPrefix>
+                <DocumentPrefix>0727ORD</DocumentPrefix>
                 <DocumentNumber>80000162</DocumentNumber>
                 <SequenceNumber>6</SequenceNumber>
                 <TransactionType>1</TransactionType>
@@ -141,7 +141,7 @@
                 <RVTKey>80000162</RVTKey>
                 <TenantCode>15152343</TenantCode>
                 <LocationCode>15152343</LocationCode>
-                <DocumentPrefix>0017ORD</DocumentPrefix>
+                <DocumentPrefix>0727ORD</DocumentPrefix>
                 <DocumentNumber>80000162</DocumentNumber>
                 <SequenceNumber>7</SequenceNumber>
                 <TransactionType>1</TransactionType>
@@ -159,7 +159,7 @@
                 <RVTKey>80000162</RVTKey>
                 <TenantCode>15152343</TenantCode>
                 <LocationCode>15152343</LocationCode>
-                <DocumentPrefix>0017ORD</DocumentPrefix>
+                <DocumentPrefix>0727ORD</DocumentPrefix>
                 <DocumentNumber>80000162</DocumentNumber>
                 <SequenceNumber>8</SequenceNumber>
                 <TransactionType>1</TransactionType>
@@ -177,7 +177,7 @@
                 <RVTKey>80000162</RVTKey>
                 <TenantCode>15152343</TenantCode>
                 <LocationCode>15152343</LocationCode>
-                <DocumentPrefix>0017ORD</DocumentPrefix>
+                <DocumentPrefix>0727ORD</DocumentPrefix>
                 <DocumentNumber>80000162</DocumentNumber>
                 <SequenceNumber>9</SequenceNumber>
                 <TransactionType>1</TransactionType>
@@ -195,7 +195,7 @@
                 <RVTKey>80000162</RVTKey>
                 <TenantCode>15152343</TenantCode>
                 <LocationCode>15152343</LocationCode>
-                <DocumentPrefix>0017ORD</DocumentPrefix>
+                <DocumentPrefix>0727ORD</DocumentPrefix>
                 <DocumentNumber>80000162</DocumentNumber>
                 <SequenceNumber>10</SequenceNumber>
                 <TransactionType>1</TransactionType>
@@ -213,7 +213,7 @@
                 <RVTKey>80000162</RVTKey>
                 <TenantCode>15152343</TenantCode>
                 <LocationCode>15152343</LocationCode>
-                <DocumentPrefix>0017ORD</DocumentPrefix>
+                <DocumentPrefix>0727ORD</DocumentPrefix>
                 <DocumentNumber>80000162</DocumentNumber>
                 <SequenceNumber>11</SequenceNumber>
                 <TransactionType>1</TransactionType>
@@ -231,7 +231,7 @@
                 <RVTKey>80000162</RVTKey>
                 <TenantCode>15152343</TenantCode>
                 <LocationCode>15152343</LocationCode>
-                <DocumentPrefix>0017ORD</DocumentPrefix>
+                <DocumentPrefix>0727ORD</DocumentPrefix>
                 <DocumentNumber>80000162</DocumentNumber>
                 <SequenceNumber>12</SequenceNumber>
                 <TransactionType>1</TransactionType>
@@ -249,7 +249,7 @@
                 <RVTKey>80000162</RVTKey>
                 <TenantCode>15152343</TenantCode>
                 <LocationCode>15152343</LocationCode>
-                <DocumentPrefix>0017ORD</DocumentPrefix>
+                <DocumentPrefix>0727ORD</DocumentPrefix>
                 <DocumentNumber>80000162</DocumentNumber>
                 <SequenceNumber>13</SequenceNumber>
                 <TransactionType>1</TransactionType>
@@ -267,7 +267,7 @@
                 <RVTKey>80000162</RVTKey>
                 <TenantCode>15152343</TenantCode>
                 <LocationCode>15152343</LocationCode>
-                <DocumentPrefix>0017ORD</DocumentPrefix>
+                <DocumentPrefix>0727ORD</DocumentPrefix>
                 <DocumentNumber>80000162</DocumentNumber>
                 <SequenceNumber>14</SequenceNumber>
                 <TransactionType>1</TransactionType>
@@ -285,7 +285,7 @@
                 <RVTKey>80000162</RVTKey>
                 <TenantCode>15152343</TenantCode>
                 <LocationCode>15152343</LocationCode>
-                <DocumentPrefix>0017ORD</DocumentPrefix>
+                <DocumentPrefix>0727ORD</DocumentPrefix>
                 <DocumentNumber>80000162</DocumentNumber>
                 <SequenceNumber>15</SequenceNumber>
                 <TransactionType>1</TransactionType>
@@ -303,7 +303,7 @@
                 <RVTKey>80000162</RVTKey>
                 <TenantCode>15152343</TenantCode>
                 <LocationCode>15152343</LocationCode>
-                <DocumentPrefix>0017ORD</DocumentPrefix>
+                <DocumentPrefix>0727ORD</DocumentPrefix>
                 <DocumentNumber>80000162</DocumentNumber>
                 <SequenceNumber>16</SequenceNumber>
                 <TransactionType>1</TransactionType>
@@ -321,7 +321,7 @@
                 <RVTKey>80000162</RVTKey>
                 <TenantCode>15152343</TenantCode>
                 <LocationCode>15152343</LocationCode>
-                <DocumentPrefix>0017ORD</DocumentPrefix>
+                <DocumentPrefix>0727ORD</DocumentPrefix>
                 <DocumentNumber>80000162</DocumentNumber>
                 <SequenceNumber>17</SequenceNumber>
                 <TransactionType>1</TransactionType>
@@ -339,7 +339,7 @@
                 <RVTKey>80000162</RVTKey>
                 <TenantCode>15152343</TenantCode>
                 <LocationCode>15152343</LocationCode>
-                <DocumentPrefix>0017ORD</DocumentPrefix>
+                <DocumentPrefix>0727ORD</DocumentPrefix>
                 <DocumentNumber>80000162</DocumentNumber>
                 <SequenceNumber>18</SequenceNumber>
                 <TransactionType>1</TransactionType>
@@ -357,7 +357,7 @@
                 <RVTKey>80000162</RVTKey>
                 <TenantCode>15152343</TenantCode>
                 <LocationCode>15152343</LocationCode>
-                <DocumentPrefix>0017ORD</DocumentPrefix>
+                <DocumentPrefix>0727ORD</DocumentPrefix>
                 <DocumentNumber>80000162</DocumentNumber>
                 <SequenceNumber>19</SequenceNumber>
                 <TransactionType>1</TransactionType>
@@ -375,7 +375,7 @@
                 <RVTKey>80000162</RVTKey>
                 <TenantCode>15152343</TenantCode>
                 <LocationCode>15152343</LocationCode>
-                <DocumentPrefix>0017ORD</DocumentPrefix>
+                <DocumentPrefix>0727ORD</DocumentPrefix>
                 <DocumentNumber>80000162</DocumentNumber>
                 <SequenceNumber>20</SequenceNumber>
                 <TransactionType>1</TransactionType>
