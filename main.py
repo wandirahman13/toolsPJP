@@ -18,6 +18,7 @@ class mainWindow(QMainWindow, Ui_MainWindow):
 
 		try:
 			cnxn = pyodbc.connect('DRIVER={ODBC Driver 13 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+password, timeout=2)
+
 			cnxn.setencoding(encoding='utf-8', ctype=pyodbc.SQL_CHAR)
 			cursor = cnxn.cursor()
 		except pyodbc.Error as err :
@@ -61,11 +62,12 @@ class mainWindow(QMainWindow, Ui_MainWindow):
 			# root = tree.getroot()
 			if len(codePJP) > 0:
 				suffix = "ORD"
-				prefix = tree.find('.//DocumentPrefix')
+
 				tree.find('.//RouteCode').text = codePJP
-				for p in prefix:
-					prefix.text = codePJP + suffix
-				# tree.find('.//DocumentPrefix').text = codePJP+suffix
+
+				for node in tree.xpath(".//DocumentPrefix"):
+					node.text = codePJP + suffix
+
 				if len(codeSales) > 0:
 					tree.find('.//SalesmanCode').text = codeSales
 				else:
@@ -76,7 +78,7 @@ class mainWindow(QMainWindow, Ui_MainWindow):
 				tree.write(path, xml_declaration=True, encoding='utf-8', method="xml")
 				QMessageBox.information(self, "Information", "Success!", QMessageBox.Ok)
 
-		
+
 
 
 if __name__ == '__main__' :
