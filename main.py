@@ -4,27 +4,40 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from toolspjp import Ui_MainWindow
 from lxml import etree
+import pyodbc
 
 class mainWindow(QMainWindow, Ui_MainWindow):
 	def __init__(self) :
 		QMainWindow.__init__(self)
 		self.setupUi(self)
-		
+
+		server = 'den1.mssql4.gear.host'
+		database = 'sqlsrv'
+		username = 'sqlsrv'
+		password = 'terserah!'
+
+		try:
+			cnxn = pyodbc.connect('DRIVER={ODBC Driver 13 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+password, timeout=2)
+			cnxn.setencoding(encoding='utf-8', ctype=pyodbc.SQL_CHAR)
+			cursor = cnxn.cursor()
+		except pyodbc.Error as err :
+			QMessageBox.critical(self, "Error", "Can't connect to server.", QMessageBox.Abort)
+			raise SystemExit(0)
+
+		cursor.execute("SELECT PJP, DSR, LDESC FROM PJP_HEAD")
+		row = cursor.fetchall()
+		print(row)
+
+		for rSales in row:
+			self.cbSales.addItem(rSales[2], rSales[1])
+
+		for rPJP in row:
+			x = "{:0>4}".format(rPJP[0])
+			self.cbPJP.addItem(x)
+
 		self.btOpen.clicked.connect(self.openXml)
 		self.btSave.clicked.connect(self.saveChange)
-		
 
-		self.cbPJP.addItem("")
-		self.cbPJP.addItem("0017")
-		self.cbPJP.addItem("0021")
-		self.cbPJP.addItem("0023")
-		self.cbPJP.addItem("0033")
-
-		self.cbSales.addItem("")
-		self.cbSales.addItem("17")
-		self.cbSales.addItem("21")
-		self.cbSales.addItem("23")
-		self.cbSales.addItem("33")
 
 	def openXml(self):
 		fileName, _ = QFileDialog.getOpenFileName(self,"Open File", "","XML Files (*.xml)")
@@ -32,6 +45,7 @@ class mainWindow(QMainWindow, Ui_MainWindow):
 			print(fileName)
 			x = QUrl.fromLocalFile(fileName).fileName()
 			self.edFile.setText(x)
+
 
 	def saveChange(self):
 		path = self.edFile.text()
@@ -41,12 +55,17 @@ class mainWindow(QMainWindow, Ui_MainWindow):
 			print(path)
 			codePJP = self.cbPJP.currentText()
 			print(codePJP)
-			codeSales = self.cbSales.currentText()
+			codeSales = str(self.cbSales.itemData(self.cbSales.currentIndex()))
 			print(codeSales)
 			tree = etree.parse(path)
 			# root = tree.getroot()
 			if len(codePJP) > 0:
+				suffix = "ORD"
+				prefix = tree.find('.//DocumentPrefix')
 				tree.find('.//RouteCode').text = codePJP
+				for p in prefix:
+					prefix.text = codePJP + suffix
+				# tree.find('.//DocumentPrefix').text = codePJP+suffix
 				if len(codeSales) > 0:
 					tree.find('.//SalesmanCode').text = codeSales
 				else:
