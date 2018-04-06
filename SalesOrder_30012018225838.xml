@@ -3,7 +3,7 @@
     <SalesOrderHeader>
         <TenantCode>15152343</TenantCode>
         <LocationCode>15152343</LocationCode>
-        <RouteCode>0727</RouteCode>
+        <RouteCode>0828</RouteCode>
         <SalesmanCode>48</SalesmanCode>
         <CustomerCode>3275~061~003~00009251</CustomerCode>
         <DocumentType>1</DocumentType>
@@ -16,7 +16,7 @@
         <VoidIndicator>0</VoidIndicator>
         <PaymentType>0</PaymentType>
         <CustomerPriceLevel>0</CustomerPriceLevel>
-        <BillToCustomer>0017ORD</BillToCustomer>
+        <BillToCustomer>0017</BillToCustomer>
         <PricingCode>0001</PricingCode>
         <Comments>POX005</Comments>
         <PresoldOrderNumber/>
