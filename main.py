@@ -2,14 +2,19 @@ import os, sys, io, time
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
-from toolspjp import Ui_MainWindow
+from toolspjp import Ui_PJPChanger
 from lxml import etree
 import pyodbc
 
-class mainWindow(QMainWindow, Ui_MainWindow):
+class mainWindow(QMainWindow, Ui_PJPChanger):
 	def __init__(self) :
 		QMainWindow.__init__(self)
 		self.setupUi(self)
+
+		# app icon
+		self.setWindowIcon(QIcon('icon.png'))
+
+        # centering window
 
 		# Getting Data Section
 		server = 'den1.mssql4.gear.host'
@@ -28,7 +33,6 @@ class mainWindow(QMainWindow, Ui_MainWindow):
 
 		cursor.execute("SELECT PJP, DSR, LDESC FROM PJP_HEAD")
 		row = cursor.fetchall()
-		print(row)
 
 		for rSales in row:
 			self.cbSales.addItem(rSales[2], rSales[1])
@@ -46,9 +50,9 @@ class mainWindow(QMainWindow, Ui_MainWindow):
 	def openXml(self):
 		fileName, _ = QFileDialog.getOpenFileName(self,"Open File", "","XML Files (*.xml)")
 		if fileName:
-			print(fileName)
 			x = QUrl.fromLocalFile(fileName).fileName()
 			self.edFile.setText(x)
+			self.edFile.setStyleSheet("""QLineEdit { color: green }""")
 		# End of def openXML
 
 
@@ -101,14 +105,12 @@ class mainWindow(QMainWindow, Ui_MainWindow):
 					QMessageBox.warning(self, "Warning", "Salesman Code Must Be Selected!", QMessageBox.Ok)
 			else:
 				QMessageBox.warning(self, "Warning", "PJP Code Must Be Selected!", QMessageBox.Ok)
-			
+
 			# Change data XML with Value of combobox.
 			if len(codePJP) > 0 and len(codeSales) > 0:
 				tree.write(path, xml_declaration=True, encoding='utf-8', method="xml")
 				QMessageBox.information(self, "Information", "Success!", QMessageBox.Ok)
 			# End of def saveChange.
-
-
 
 
 if __name__ == '__main__' :
