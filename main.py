@@ -116,7 +116,30 @@ class mainWindow(QMainWindow, Ui_PJPChanger):
 if __name__ == '__main__' :
     app = QApplication(sys.argv)
 
+    # Create splash screen
+    splash_pix = QPixmap('unilever_splash.png')
+
+    splash = QSplashScreen(splash_pix, Qt.WindowStaysOnTopHint)
+    splash.setWindowFlags(Qt.WindowStaysOnTopHint | Qt.FramelessWindowHint)
+    splash.setEnabled(False)
+
+    # adding progress bar
+    progressBar = QProgressBar(splash)
+    progressBar.setMaximum(10)
+    progressBar.setGeometry(0, splash_pix.height() - 20, splash_pix.width(), 20)
+
+    splash.show()
+
+    for iSplash in range(1, 11):
+    	progressBar.setValue(iSplash)
+    	t = time.time()
+    	while time.time() < t + 0.1:
+    		app.processEvents()
+
+    time.sleep(1)
+
     window = mainWindow()
     window.show()
+    splash.finish(window)
 
     sys.exit(app.exec_())
