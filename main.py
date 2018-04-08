@@ -14,7 +14,10 @@ class mainWindow(QMainWindow, Ui_PJPChanger):
 		# app icon
 		self.setWindowIcon(QIcon('icon.png'))
 
-        # centering window
+		tr = self.frameGeometry()
+		cp = QDesktopWidget().availableGeometry().center()
+		tr.moveCenter(cp)
+		self.move(tr.topLeft())
 
 		# Getting Data Section
 		server = 'den1.mssql4.gear.host'
@@ -28,7 +31,8 @@ class mainWindow(QMainWindow, Ui_PJPChanger):
 			cnxn.setencoding(encoding='utf-8', ctype=pyodbc.SQL_CHAR)
 			cursor = cnxn.cursor()
 		except pyodbc.Error as err :
-			QMessageBox.critical(self, "Error", "Can't connect to server.", QMessageBox.Abort)
+			self.hide()
+			QMessageBox.critical(self, "Error", "Can't connect to database server.", QMessageBox.Abort)
 			raise SystemExit(0)
 
 		cursor.execute("SELECT PJP, DSR, LDESC FROM PJP_HEAD")
@@ -119,14 +123,14 @@ if __name__ == '__main__' :
     # Create splash screen
     splash_pix = QPixmap('unilever_splash.png')
 
-    splash = QSplashScreen(splash_pix, Qt.WindowStaysOnTopHint)
-    splash.setWindowFlags(Qt.WindowStaysOnTopHint | Qt.FramelessWindowHint)
+    splash = QSplashScreen(splash_pix)
+    splash.setWindowFlags(Qt.FramelessWindowHint)
     splash.setEnabled(False)
 
     # adding progress bar
     progressBar = QProgressBar(splash)
     progressBar.setMaximum(10)
-    progressBar.setGeometry(0, splash_pix.height() - 20, splash_pix.width(), 20)
+    progressBar.setGeometry(17, splash_pix.height() - 20, splash_pix.width(), 50)
 
     splash.show()
 
