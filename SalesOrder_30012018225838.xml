@@ -3,8 +3,8 @@
     <SalesOrderHeader>
         <TenantCode>15152343</TenantCode>
         <LocationCode>15152343</LocationCode>
-        <RouteCode>0828</RouteCode>
-        <SalesmanCode>48</SalesmanCode>
+        <RouteCode>0727</RouteCode>
+        <SalesmanCode>47</SalesmanCode>
         <CustomerCode>3275~061~003~00009251</CustomerCode>
         <DocumentType>1</DocumentType>
         <DocumentPrefix>0727ORD</DocumentPrefix>

@@ -87,7 +87,7 @@ class mainWindow(QMainWindow, Ui_PJPChanger):
 
 
 	def saveChange(self):
-		path = self.edFile.text()
+		path = self.lbPath.text()
 		if len(path) == 0:
 			QMessageBox.warning(self, "Warning", "You Must Select File First!", QMessageBox.Ok)
 		else:
