@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from toolspjp import Ui_PJPChanger
 from lxml import etree
+import res_rc
 import pyodbc
 
 class mainWindow(QMainWindow, Ui_PJPChanger):
@@ -11,8 +12,10 @@ class mainWindow(QMainWindow, Ui_PJPChanger):
 		QMainWindow.__init__(self)
 		self.setupUi(self)
 
+		#iconapp = self.resource_path(':/resources/icon.png')
+
 		# app icon
-		self.setWindowIcon(QIcon('icon.png'))
+		self.setWindowIcon(QIcon(':/resources/icon.png'))
 
 		tr = self.frameGeometry()
 		cp = QDesktopWidget().availableGeometry().center()
@@ -117,13 +120,20 @@ class mainWindow(QMainWindow, Ui_PJPChanger):
 			# End of def saveChange.
 
 
+	# logo path
+	def resource_path(self, relative_path) :
+		""" Get absolute path to resource, works for dev and for PyInstaller """
+		base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+		return os.path.join(base_path, relative_path)
+
+
 if __name__ == '__main__' :
     app = QApplication(sys.argv)
 
     # Create splash screen
-    splash_pix = QPixmap('unilever_splash.png')
+    splash_pix = QPixmap(':/resources/unilever_splash.png')
 
-    splash = QSplashScreen(splash_pix)
+    splash = QSplashScreen(splash_pix, Qt.WindowStaysOnTopHint)
     splash.setWindowFlags(Qt.FramelessWindowHint)
     splash.setEnabled(False)
 
@@ -134,10 +144,10 @@ if __name__ == '__main__' :
 
     splash.show()
 
-    for iSplash in range(1, 11):
+    for iSplash in range(1, 11) :
     	progressBar.setValue(iSplash)
     	t = time.time()
-    	while time.time() < t + 0.1:
+    	while time.time() < t + 0.1 :
     		app.processEvents()
 
     time.sleep(1)
