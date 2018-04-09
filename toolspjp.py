@@ -42,9 +42,12 @@ class Ui_PJPChanger(object):
         self.btSave = QtWidgets.QPushButton(self.centralwidget)
         self.btSave.setGeometry(QtCore.QRect(85, 186, 181, 31))
         self.btSave.setObjectName("btSave")
+        self.lbPath = QtWidgets.QLabel(self.centralwidget)
+        self.lbPath.setGeometry(QtCore.QRect(20, 170, 55, 16))
+        self.lbPath.setObjectName("lbPath")
         PJPChanger.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(PJPChanger)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 341, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 341, 26))
         self.menubar.setObjectName("menubar")
         PJPChanger.setMenuBar(self.menubar)
 
@@ -58,8 +61,9 @@ class Ui_PJPChanger(object):
         self.gbPJP.setTitle(_translate("PJPChanger", "Select PJP Code"))
         self.gbSales.setTitle(_translate("PJPChanger", "Select Salesman"))
         self.btSave.setText(_translate("PJPChanger", "Save Changes"))
+        self.lbPath.setText(_translate("PJPChanger", "TextLabel"))
 
-import res_rc_rc
+import res_rc
 
 if __name__ == "__main__":
     import sys

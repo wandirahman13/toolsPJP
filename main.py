@@ -4,7 +4,6 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from toolspjp import Ui_PJPChanger
 from lxml import etree
-import res_rc
 import pyodbc
 
 class mainWindow(QMainWindow, Ui_PJPChanger):
@@ -49,6 +48,7 @@ class mainWindow(QMainWindow, Ui_PJPChanger):
 			self.cbPJP.addItem(x)
 		# end of Getting Data Section
 
+		self.lbPath.hide()
 		self.btOpen.clicked.connect(self.openXml)
 		self.btSave.clicked.connect(self.saveChange)
 		self.edFile.textChanged.connect(self.setItem)
@@ -57,6 +57,7 @@ class mainWindow(QMainWindow, Ui_PJPChanger):
 	def openXml(self):
 		fileName, _ = QFileDialog.getOpenFileName(self,"Open File", "","XML Files (*.xml)")
 		if fileName:
+			self.lbPath.setText(fileName)
 			x = QUrl.fromLocalFile(fileName).fileName()
 			self.edFile.setText(x)
 			self.edFile.setStyleSheet("""QLineEdit { color: green }""")
@@ -64,7 +65,7 @@ class mainWindow(QMainWindow, Ui_PJPChanger):
 
 
 	def setItem(self):
-		path = self.edFile.text()
+		path = self.lbPath.text()
 		if len(path) == 0:
 			self.cbPJP.setCurrentIndex(0)
 			self.cbSales.setCurrentIndex(0)
