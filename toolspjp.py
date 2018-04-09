@@ -59,6 +59,7 @@ class Ui_PJPChanger(object):
         self.gbSales.setTitle(_translate("PJPChanger", "Select Salesman"))
         self.btSave.setText(_translate("PJPChanger", "Save Changes"))
 
+import res_rc_rc
 
 if __name__ == "__main__":
     import sys

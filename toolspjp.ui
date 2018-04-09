@@ -138,6 +138,8 @@
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="res_rc.qrc"/>
+ </resources>
  <connections/>
 </ui>

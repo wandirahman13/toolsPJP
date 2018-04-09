@@ -1,0 +1,1 @@
+pyinstaller --onefile --clean --noconsole --noupx main.spec
