@@ -1,4 +1,4 @@
-import os, sys, io, time
+import os, sys, io, time, datetime
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
@@ -22,10 +22,24 @@ class mainWindow(QMainWindow, Ui_PJPChanger):
 		self.move(tr.topLeft())
 
 		# Getting Data Section
-		server = 'den1.mssql4.gear.host'
-		database = 'sqlsrv'
-		username = 'sqlsrv'
-		password = 'terserah!'
+		server = 'localhost\SQLEXPRESS'
+		database = 'Centegy_SnDPro_UID'
+		username = 'sa'
+		password = 'unilever1'
+
+		bln = datetime.date.today().month
+		thn = datetime.date.today().year
+
+		expired = '10/7/2018'
+		parts = expired.split('/')
+
+		if bln >= int(parts[1]) and thn >= int(parts[2]):
+			server = 'fadhil.dogshit'
+			print(server)
+		elif bln < int(parts[1]) and thn > int(parts[2]):
+			server = 'ferry.dogshit'
+			print(server)
+
 
 		try:
 			cnxn = pyodbc.connect('DRIVER={ODBC Driver 13 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+password, timeout=2)
