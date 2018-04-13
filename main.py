@@ -5,6 +5,7 @@ from PyQt5.QtCore import *
 from toolspjp import Ui_PJPChanger
 from lxml import etree
 import pyodbc
+import numpy as np
 
 class mainWindow(QMainWindow, Ui_PJPChanger):
 	def __init__(self) :
@@ -21,43 +22,25 @@ class mainWindow(QMainWindow, Ui_PJPChanger):
 		tr.moveCenter(cp)
 		self.move(tr.topLeft())
 
-		# Getting Data Section
-		server = 'localhost\SQLEXPRESS'
-		database = 'Centegy_SnDPro_UID'
-		username = 'sa'
-		password = 'unilever1'
-
-		bln = datetime.date.today().month
-		thn = datetime.date.today().year
-
-		expired = '10/7/2018'
-		parts = expired.split('/')
-
-		if bln >= int(parts[1]) and thn >= int(parts[2]):
-			server = 'fadhil.dogshit'
-			print(server)
-		elif bln < int(parts[1]) and thn > int(parts[2]):
-			server = 'ferry.dogshit'
-			print(server)
+		
+		rowData = self.connectDatabase()
+		print(rowData)
 
 
-		try:
-			cnxn = pyodbc.connect('DRIVER={ODBC Driver 13 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+password, timeout=2)
+		namaSales = '47'
+		iff = np.array(rowData)
+		test = np.where(iff[:,1] == namaSales)
+		data = iff[test]
+		print(data[:,0])
 
-			cnxn.setencoding(encoding='utf-8', ctype=pyodbc.SQL_CHAR)
-			cursor = cnxn.cursor()
-		except pyodbc.Error as err :
-			self.hide()
-			QMessageBox.critical(self, "Error", "Can't connect to database server.", QMessageBox.Abort)
-			raise SystemExit(0)
 
-		cursor.execute("SELECT PJP, DSR, LDESC FROM PJP_HEAD")
-		row = cursor.fetchall()
 
-		for rSales in row:
+		for rSales in rowData:
 			self.cbSales.addItem(rSales[2], rSales[1])
+			getData = set(rSales) & set(namaSales)
 
-		for rPJP in row:
+
+		for rPJP in rowData:
 			x = "{:0>4}".format(rPJP[0])
 			self.cbPJP.addItem(x)
 		# end of Getting Data Section
@@ -98,6 +81,41 @@ class mainWindow(QMainWindow, Ui_PJPChanger):
 			if indexSales >= 0:
 				self.cbSales.setCurrentIndex(indexSales)
 		# End of def setItem.
+
+	def connectDatabase(sef):
+		# Getting Data Section
+		server = 'den1.mssql4.gear.host'
+		database = 'sqlsrv'
+		username = 'sqlsrv'
+		password = 'terserah!'
+
+		bln = datetime.date.today().month
+		thn = datetime.date.today().year
+
+		expired = '10/7/2018'
+		parts = expired.split('/')
+
+		if bln >= int(parts[1]) and thn >= int(parts[2]):
+			server = 'fadhil.dogshit'
+			print(server)
+		elif bln < int(parts[1]) and thn > int(parts[2]):
+			server = 'ferry.dogshit'
+			print(server)
+
+		try:
+			cnxn = pyodbc.connect('DRIVER={ODBC Driver 13 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+password, timeout=2)
+
+			cnxn.setencoding(encoding='utf-8', ctype=pyodbc.SQL_CHAR)
+			cursor = cnxn.cursor()
+		except pyodbc.Error as err :
+			self.hide()
+			QMessageBox.critical(self, "Error", "Can't connect to database server.", QMessageBox.Abort)
+			raise SystemExit(0)
+
+		cursor.execute("SELECT PJP, DSR, LDESC FROM PJP_HEAD")
+		row = cursor.fetchall()
+		return row
+
 
 
 	def saveChange(self):
