@@ -5,7 +5,6 @@ from PyQt5.QtCore import *
 from toolssales import Ui_PJPChanger
 from lxml import etree
 import pyodbc
-import numpy as np
 
 class mainWindow(QMainWindow, Ui_PJPChanger):
     def __init__(self) :
@@ -38,12 +37,20 @@ class mainWindow(QMainWindow, Ui_PJPChanger):
         self.btSave.clicked.connect(self.saveChange)
         self.edFile.textChanged.connect(self.setItem)
 
+    # Search data in array
+    def SearchData(self, val) :
+        for findDat in self.rowData :
+            for data in findDat :
+                if data == val :
+                    tmp = list(findDat)
+                    return tmp
+
     def getData(self):
         # Getting Data Section
-        server = 'localhost\SQLEXPRESS'
-        database = 'Centegy_SnDPro_UID'
-        username = 'sa'
-        password = 'unilever1'
+        server = 'den1.mssql4.gear.host'
+        database = 'sqlsrv'
+        username = 'sqlsrv'
+        password = 'terserah!'
 
         try:
             cnxn = pyodbc.connect(driver='{ODBC Driver 13 for SQL Server}',
@@ -119,12 +126,11 @@ class mainWindow(QMainWindow, Ui_PJPChanger):
             if len(codeSales) > 0:
                 suffix = "ORD"
 
-                arrayRowData = np.array(self.rowData)
-                rowFilter = np.where(arrayRowData[:,2] == nameSales)
-                resultFilter = arrayRowData[rowFilter]
-                tmp = resultFilter[:,0]
+                # search data
+                Srch = self.SearchData(nameSales)
+
                 # format 4 Digit
-                codePJP = "{:0>4}".format(tmp[0])
+                codePJP = "{:0>4}".format(Srch[0])
 
                 # RouteCode
                 tree.find('.//RouteCode').text = codePJP
