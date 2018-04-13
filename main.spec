@@ -21,9 +21,9 @@ exe = EXE(pyz,
           a.binaries,
           a.zipfiles,
           a.datas,
-          name='main',
+          name='PJP_Changer',
           debug=False,
           strip=False,
           upx=False,
           runtime_tmpdir=None,
-          console=False)
+          console=False , icon='resources\\icon.ico')
