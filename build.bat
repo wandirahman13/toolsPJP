@@ -1,1 +1,1 @@
-pyinstaller --onefile --clean --noconsole --noupx main.spec
+pyinstaller --onefile --clean --noconsole --noupx --name="PJP_Changer" main.spec
